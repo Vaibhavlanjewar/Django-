@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard vnbl</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #008080; /* Updated background color */
+            color: #333;
+        }
+        h1, h2 {
+            color: white; /* Updated heading color */
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            background-color:green;
+            
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        section {
+            background-color: #afa0e4;;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            overflow: auto;
+        }
+        .table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .row {
+            display: table-row;
+        }
+        .header {
+            font-weight: bold;
+            background-color: black; /* Updated header background color */
+            color: #fff; /* Header text color */
+        }
+        .cell {
+            display: table-cell;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .row:last-child .cell {
+            border-bottom: none;
+        }
+        .completed {
+            color: #40916c; /* Updated completed color */
+        }
+        .pending {
+            color: #e76f51; /* Updated pending color */
+        }
+        .quote-section {
+            background-color: #e9c46a; /* Quote section background color */
+            color: #2a2a2a; /* Quote text color */
+            font-style: italic;
+            padding: 20px;
+            margin: 30px auto;
+            border-left: 5px solid #2c7873; /* Quote section border color */
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Management Dashboard</h1>
+    <h3 style="text-align:right">Made by Vaibhav Lanjewar</h3>
+
+    <!-- Quote Section -->
+    <div class="quote-section">
+        "The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and starting on the first one." - Mark Twain
+    </div>
+
+    <!-- Projects Section -->
+    <section>
+        <h2>Projects</h2>
+       
+        <div class="table">
+            <div class="row header">
+                <div class="cell">Name</div>
+                <div class="cell">Description</div>
+            </div>
+            {% for project in projects %}
+            <div class="row">
+                <div class="cell">{{ project.name }}</div>
+                <div class="cell">{{ project.description }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Employees Section -->
+    <section>
+        <h2>Employees</h2>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">Name</div>
+                <div class="cell">Email</div>
+            </div>
+            {% for employee in employees %}
+            <div class="row">
+                <div class="cell">{{ employee.name }}</div>
+                <div class="cell">{{ employee.email }}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Tasks Section -->
+    <section>
+        <h2>Tasks</h2>
+        <div class="table">
+            <div class="row header">
+                <div class="cell">Title</div>
+                <div class="cell">Description</div>
+                <div class="cell">Due Date</div>
+                <div class="cell">Assigned To</div>
+                <div class="cell">Status</div>
+            </div>
+            {% for task in tasks %}
+            <div class="row">
+                <div class="cell">{{ task.title }}</div>
+                <div class="cell">{{ task.description }}</div>
+                <div class="cell">{{ task.due_date }}</div>
+                <div class="cell">{% if task.assigned_to %}{{ task.assigned_to.name }}{% else %}N/A{% endif %}</div>
+                <div class="cell">{% if task.completed %}<span class="completed">Completed</span>{% else %}<span class="pending">Pending</span>{% endif %}</div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
