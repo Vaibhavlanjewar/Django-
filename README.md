@@ -1,7 +1,7 @@
 # Project_Management_tool_djangol
 Django project for project management tool
 <h1>Instruction</h1>
-<h3 style="color🟡">
+<h3 style="color:yellow">
 <li>
   <ol>Download the Zip file </ol>
   <ol>Extract the zip file </ol>
@@ -18,8 +18,8 @@ Django project for project management tool
  <ol>to see the frontend - http://127.0.0.1:8000/projects  provided that u have run command python manage.py runserver <br>![image](https://github.com/Vaibhavlanjewar/cl3-practical/assets/105924348/8d4d07f2-38a9-45b5-8f84-7f8cf48b557c)
  </ol>
 </li>
-  
-</h3>
+  </h3>
+
 ![alt text](image.png)
 ![alt text](frontend1.png)
 ![alt text](fontend.png) 
